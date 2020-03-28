@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js"></script>
+</head>
+
+
+<body>
+    <div class="wrapper">
+
+        <header class="page-header">
+
+            <div class="header">
+
+                <div class="logo">
+                    <img src="logo.png" alt="">
+                </div>
+                <div class="center">
+                    <div class="search">
+                        <div class="search__container">
+                            <input class="search__input" type="text" placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <nav class="nav_bar">
+                <ul>
+                    <li><button class="navfont"><i class="fa fa-home"></i><a href="/">Home</a></button></li>
+                    <li>
+                      <button class="navfont">Show Rooms</button>
+                        <div class="submenu-1">
+                          <ul>
+                            <li><button><a href="/Limmys">Limmys</a></button></li>
+                            <li><button><a href="/megamart">Mega Mart</a></button></li>
+                            <li><button><a href="/Shifra">Shifra</a></button></li>
+                            <li><button><a href="/Sivakaneshan">Sivakaneshan</a></button></li>
+                            <li><button><a href="/boys">boys</a></button></li>
+                        </ul>
+                        </div>
+                    </li>
+
+                    <li><button class="navfont"><a href="/#about">About us</a></button></li>
+                    <li><button class="navfont"><a href="/#contact">Contact us</a></button></li>
+                    <li class="active"><button class="navfont"><a href="/shopnow">Shop Now</button></li>
+                </ul>
+                <ul>
+                  <% if (user) { %>
+                      <li> <%=user.name%> </li>
+                      <li><button class="navfont"><a href="/users/logout">Logout</button> </a></li>
+                <%    }  else { %>
+                        <li><button class="navfont"><a href="users/login">Login</button> </a></li>
+                            <li><button class="navfont"><a href="users/register">Signup</button> </a></li>
+                    <%      }%>
+
+
+                </ul>
+            </nav>
+
+        </header>
+
+                <section class="section">
+                    <h1>Gallery</h1>
+                    <div class="grid">
+                      <div class="item item--large">
+                      <a href="/order">  <div class="item__details">
+                          LS01
+                        </div>
+                      </div></a>
+                      <div class="item item--large">
+                        <a href="/order"><div class="item__details">
+                          SS01
+                        </div></a>
+                      </div>
+                      <div class="item item--large">
+                        <a href="/order"><div class="item__details">
+                          MMS01
+                        </div></a>
+                      </div>
+                      <div class="item item--medium">
+                        <a href="/order"><div class="item__details">
+                          SIA01
+                        </div></a>
+                      </div>
+                      <div class="item item--medium">
+                        <a href="/order"><div class="item__details">
+                          BS01
+                        </div></a>
+                      </div>
+                      <div class="item item--medium">
+                        <a href="/order"><div class="item__details">
+                          SIA02
+                        </div></a>
+                      </div>
+                      <div class="item item--full">
+                        <a href="/order"><div class="item__details">
+                          LS02
+                        </div></a>
+                      </div>
+                      <div class="item item--medium">
+                        <a href="/order"><div class="item__details">
+                          BS02
+                        </div></a>
+                      </div>
+                      <div class="item item--medium">
+                        <a href="/order"><div class="item__details">
+                          LS03
+                        </div></a>
+                      </div>
+                      <div class="item item--medium">
+                        <a href="/order"><div class="item__details">
+                          SIVS90
+                        </div></a>
+                      </div>
+                      <div class="item item--large">
+                        <a href="/order"><div class="item__details">
+                          MMS98
+                        </div></a>
+                      </div>
+                      <div class="item item--large">
+                        <a href="/order"><div class="item__details">
+                          SS09
+                        </div></a>
+                      </div>
+                      <div class="item item--large">
+                        <a href="/order"><div class="item__details">
+                          SS80
+                        </div></a>
+                      </div>
+                      <div class="item item--large">
+                        <a href="/order"><div class="item__details">
+                          MMB09
+                        </div></a>
+                      </div>
+                      <div class="item item--large">
+                        <a href="/order"><div class="item__details">
+                          SS90
+                        </div></a>
+                      </div>
+                    </div>
+                </section>
+
+        <footer class="page-footer">
+
+        </footer>
+    </div>
+</body>
+
+</html>

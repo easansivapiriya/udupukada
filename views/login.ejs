@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>UdupppuKadai</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/login.css">
+    <script src="main.js"></script>
+  </head>
+
+  <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <%= error.msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% }); %> <% } %> <% if(success_msg != ''){ %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= success_msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %> <% if(error_msg != ''){ %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= error_msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %> <% if(error != ''){ %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= error %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+
+  <body>
+    <div class="container"></div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+
+    <div class="wrapper">
+
+        <header class="page-header">
+
+            <div class="header">
+
+                <div class="logo">
+                    <img src="logo.png" alt="">
+                </div>
+                <div class="center">
+                    <div class="search">
+                        <div class="search__container">
+                            <input class="search__input" type="text" placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <nav class="nav_bar">
+                <ul>
+                    <li><button class="navfont"><i class="fa fa-home"></i><a href="/">Home</a></button></li>
+                    <li>
+                      <button class="navfont">Show Rooms</button>
+                        <div class="submenu-1">
+                          <ul>
+                            <li><button><a href="/Limmys">Limmys</a></button></li>
+                            <li><button><a href="/megamart">Mega Mart</a></button></li>
+                            <li><button><a href="/Shifra">Shifra</a></button></li>
+                            <li><button><a href="/Sivakaneshan">Sivakaneshan</a></button></li>
+                            <li><button><a href="/boys">boys</a></button></li>
+                        </ul>
+                        </div>
+                    </li>
+
+                    <li><button class="navfont"><a href="#about">About us</a></button></li>
+                    <li><button class="navfont"><a href="#contact">Contact us</a></button></li>
+                    <li><button class="navfont"><a href="/shopnow">Shop Now</button></li>
+                </ul>
+                <ul>
+
+                        <li class="active"><button class="navfont"><a href="/login">Login</button> </a></li>
+                            <li><button class="navfont"><a href="/register">Signup</button> </a></li>
+
+
+                </ul>
+            </nav>
+            <center>
+            <div class="box">
+            <h1>Login</h1>
+            <form action="/users/login" method="POST">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Enter Email"
+                />
+              </div> <br>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="Enter Password"
+                />
+              </div> <br>
+              <button type="submit" class="bu">Login</button>
+            </form> <br>
+            <p class="lead mt-4">
+              No Account? <a href="/users/register" style="color:black;">Register</a>
+            </p>
+          </header>
+        </div>
+      </div> </center>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header class="page-header">
+
+            <div class="header">
+
+                <div class="logo">
+                    <img src="logo.png" alt="">
+                </div>
+                <div class="center">
+                    <div class="search">
+                        <div class="search__container">
+                            <input class="search__input" type="text" placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <nav class="nav_bar">
+                <ul>
+                    <li class="active"><button><i class="fa fa-home"></i>Home</button></li>
+                    <li>
+                        <button>Show Rooms</button>
+                        <div class="submenu-1">
+                            <ul>
+                                <li><button>Limmys</button></li>
+                                <li><button>Mega Mart</button></li>
+                                <li><button>Shifra</button></li>
+                                <li><button>Sivakaneshan</button></li>
+                                <li><button>list 5</button></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <button>Locations</button>
+                        <div class="submenu-1">
+                            <ul>
+                                <li class="hover-me">
+                                    <button>Jaffna</button><i class="fa fa-angle-right"></i>
+                                    <div class="submenu-2">
+                                        <ul>
+                                            <li><button>Nelliyadi</button></li>
+                                            <li><button>Tondamanaru</button></li>
+                                            <li><button>Jaffna town</button></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><button>Kilinochchi</button></li>
+                                <li><button>Mulativu</button></li>
+                                <li><button>Mannar</button></li>
+                                <li><button>Trincomale</button></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><button>Catogary</button></li>
+                    <li><button>Shop Now</button></li>
+                </ul>
+                <ul>
+                    <li><button onclick="document.getElementById('login').style.display='block'"
+                            style="width:auto;">Login</button></li>
+
+                    <!--pop up form Signup-->
+
+                    <div id="login" class="modal">
+                        <span onclick="document.getElementById('login').style.display='none'" class="close"
+                            title="Close Modal">×</span>
+                        <form class="modal-content animate form" action="/index.html">
+                            <h1>Login</h1>
+                            <div class="input-icons">
+                                <i class="fa fa-user icon"></i>
+                                <input type="email" name="" id="" class="input-field"
+                                    placeholder="Enter your Email or Username">
+                                <i class="fa fa-unlock-alt icon"></i>
+                                <input type="password" name="" id="" class="input-field"
+                                    placeholder="Enter a valid password">
+                                <button type="submit">Login</button>
+                                <a style="display: block;">Forget password?</a>
+                            </div>
+                            <div>
+                                <span>Not a member?<button>Signup Now</button></span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <li><button onclick="document.getElementById('signup').style.display='block'"
+                            style="width:auto;">Signup</button></li>
+
+                    <!--pop up form Signup-->
+                    <div id="signup" class="modal">
+                        <span onclick="document.getElementById('signup').style.display='none'" class="close"
+                            title="Close Modal">×</span>
+                        <form class="modal-content animate form" action="/index.html">
+                            <h1>Signup</h1>
+                            <div class="input-icons">
+                                <i class="fa fa-user icon"></i>
+                                <input type="text" name="" id="" class="input-field" placeholder="Enter your Username">
+                                <i class="fa fa-email icon"></i>
+                                <input type="email" name="" id="" class="input-field" placeholder="Enter your Email">
+                                <i class="fa fa-unlock-alt icon"></i>
+                                <input type="password" name="" id="" class="input-field"
+                                    placeholder="Enter your password">
+                                <i class="fa fa-unlock-alt icon"></i>
+                                <input type="password" name="" id="" class="input-field"
+                                    placeholder="Conform your password">
+                                <button type="submit">Signup</button>
+                            </div>
+                            <div>
+                                <span>Alredy have a account<button>Login Now</button></span>
+                            </div>
+                        </form>
+                    </div>
+
+                </ul>
+            </nav>
+
+            <div id="slider">
+                <figure>
+                    <img src="https://www.pinkblueindia.com/blog/wp-content/uploads/2018/10/diwali-baby-girl-dress.jpg"></img>
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/915lDPa%2BnqL._UX679_.jpg"></img>
+                    <img src="https://www.bargello.com/images/slider/2-party-wears-jan-2020.jpg"></img>
+                    <img src="https://www.pinkblueindia.com/blog/wp-content/uploads/2018/10/diwali-baby-girl-dress.jpg"></img>
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/915lDPa%2BnqL._UX679_.jpg"></img>
+                    <img src="https://www.bargello.com/images/slider/2-party-wears-jan-2020.jpg"></img>
+                </figure>
+            </div>
+
+        </header>
+
+
+<div>
+
+  <section class="section">
+      <h1>Megamart</h1>
+      <div class="grid">
+        <div class="item">
+          <div class="item__details">
+            jelly-o brownie sweet
+          </div>
+        </div>
+        <div class="item item--large">
+          <div class="item__details">
+            Muffin jelly gingerbread
+          </div>
+        </div>
+        <div class="item item--medium">
+          <div class="item__details">
+            sesame snaps chocolate
+          </div>
+        </div>
+        <div class="item item--large">
+          <div class="item__details">
+            Oat cake
+          </div>
+        </div>
+        <div class="item item--full">
+          <div class="item__details">
+             jujubes cheesecake
+          </div>
+        </div>
+        <div class="item item--medium">
+          <div class="item__details">
+            Dragée pudding brownie
+          </div>
+        </div>
+        <div class="item item--large">
+          <div class="item__details">
+            Oat cake
+          </div>
+        </div>
+        <div class="item">
+          <div class="item__details">
+            powder toffee
+          </div>
+        </div>
+        <div class="item item--medium">
+          <div class="item__details">
+            pudding cheesecake
+          </div>
+        </div>
+        <div class="item item--large">
+          <div class="item__details">
+            toffee bear claw
+          </div>
+        </div>
+        <div class="item">
+          <div class="item__details">
+            cake cookie croissant
+          </div>
+        </div>
+        <div class="item item--medium">
+          <div class="item__details">
+            liquorice sweet roll
+          </div>
+        </div>
+        <div class="item item--medium">
+          <div class="item__details">
+            chocolate marzipan
+          </div>
+        </div>
+        <div class="item item--large">
+          <div class="item__details">
+            danish dessert lollipop
+          </div>
+        </div>
+        <div class="item">
+          <div class="item__details">
+            sugar plum dragée
+          </div>
+        </div>
+      </div>
+  </section>
+      </main>
+        <footer class="page-footer">
+
+        </footer>
+    </div>
+
+</body>
+
+</html>
