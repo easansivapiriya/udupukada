@@ -11,6 +11,110 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
+
+.box {
+  background-color: whitesmoke;
+  width: 500px;
+  height: auto;
+  padding: 50px;
+  margin: 20px;
+}
+img {
+  height: 400px;
+  width: 390px;
+  border-radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.row-3 {
+    display: flex;
+    width: 100%;
+    margin: 10px auto;
+    flex-wrap: wrap;
+}
+
+.wrap-column img {
+
+    position: relative;
+}
+
+.wrap-column .back {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.wrap-column:hover .back {
+    display: inline;
+}
+
+.wrap-column span {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.wrap-column span:hover {
+    cursor: pointer;
+    color: rgb(4, 42, 85);
+    font-size: 16px;
+}
+
+.row-3 .h1 {
+    display: block;
+    width: 100%;
+    color: black;
+    font-size: 30px;
+    font-weight: 500;
+    box-sizing: border-box;
+    border-bottom: #000000 2px solid;
+    padding-left: 20px;
+}
+
+.wrap-column {
+    width: 30%;
+    height: max-content;
+    box-sizing: border-box;
+    position: relative;
+    margin: 5px;
+    border-bottom: solid rgba(0, 0, 0, 0.493) 1px;
+}
+
+
+    /* Small Scren */
+
+@media(min-width: 992px) {
+    /*================================================================
+========================= image show in shopnow page ============================
+=================================================================*/
+    .wrap-column {
+        width: 33%;
+        height: max-content;
+        box-sizing: border-box;
+        position: relative;
+        margin: 0px;
+        border-bottom: solid rgba(0, 0, 0, 0.493) 1px;
+    }
+    /*================================================================
+========================= slider ============================
+=================================================================*/
+    #slider figure img {
+        width: 20%;
+        float: left;
+        height: 325px;
+        border-radius: 10px;
+    }
+}
+
        .imgf {
          width: 800px;
          height: 440px;
@@ -103,92 +207,22 @@
 </center>
 </header> <br> <br>
 
-<div>
+<div class="row-3 box">
+    <% dress.forEach(function (dress){%>
+      <div class="wrap-column">
+        <p class="boxi">
+          <img src = "<%= dress.link %>"></p>
+          <span> Dress type:    <%= dress.dressname%> </span>
+          <span>  Size:  <%= dress.size%></span>
+        </div>
+    <%}) %>
+</div>
 
-  <section class="section">
-      <div class="grid">
-        <div class="item item--large">
-          <div class="item__details">
-            jelly-o brownie sweet
-          </div>
-        </div>
-        <div class="item item--large">
-          <div class="item__details">
-            Muffin jelly gingerbread
-          </div>
-        </div>
-        <div class="item item--large">
-          <div class="item__details">
-            sesame snaps chocolate
-          </div>
-        </div>
-        <div class="item item--medium">
-          <div class="item__details">
-            Oat cake
-          </div>
-        </div>
-        <div class="item item--medium">
-          <div class="item__details">
-             jujubes cheesecake
-          </div>
-        </div>
-        <div class="item item--medium">
-          <div class="item__details">
-            Dragée pudding brownie
-          </div>
-        </div>
-        <div class="item item--full">
-          <div class="item__details">
-            Oat cake
-          </div>
-        </div>
-        <div class="item item--medium">
-          <div class="item__details">
-            powder toffee
-          </div>
-        </div>
-        <div class="item item--medium">
-          <div class="item__details">
-            pudding cheesecake
-          </div>
-        </div>
-        <div class="item item--medium">
-          <div class="item__details">
-            toffee bear claw
-          </div>
-        </div>
-        <div class="item item--large">
-          <div class="item__details">
-            cake cookie croissant
-          </div>
-        </div>
-        <div class="item item--large">
-          <div class="item__details">
-            liquorice sweet roll
-          </div>
-        </div>
-        <div class="item item--large">
-          <div class="item__details">
-            chocolate marzipan
-          </div>
-        </div>
-        <div class="item item--large">
-          <div class="item__details">
-            danish dessert lollipop
-          </div>
-        </div>
-        <div class="item item--large">
-          <div class="item__details">
-            sugar plum dragée
-          </div>
-        </div>
-      </div>
-  </section>
       </main>
         <footer class="page-footer">
 
         </footer>
-    </div>
+
 
 </body>
 

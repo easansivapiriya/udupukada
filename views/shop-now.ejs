@@ -9,7 +9,111 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="main.js"></script>
 </head>
+<style media="screen">
 
+.box {
+  background-color: whitesmoke;
+  width: 500px;
+  height: auto;
+  padding: 50px;
+  margin: 20px;
+}
+img {
+  height: 400px;
+  width: 390px;
+  border-radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.row-3 {
+    display: flex;
+    width: 100%;
+    margin: 10px auto;
+    flex-wrap: wrap;
+}
+
+.wrap-column img {
+
+    position: relative;
+}
+
+.wrap-column .back {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.wrap-column:hover .back {
+    display: inline;
+}
+
+.wrap-column span {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.wrap-column span:hover {
+    cursor: pointer;
+    color: rgb(4, 42, 85);
+    font-size: 16px;
+}
+
+.row-3 .h1 {
+    display: block;
+    width: 100%;
+    color: black;
+    font-size: 30px;
+    font-weight: 500;
+    box-sizing: border-box;
+    border-bottom: #000000 2px solid;
+    padding-left: 20px;
+}
+
+.wrap-column {
+    width: 30%;
+    height: max-content;
+    box-sizing: border-box;
+    position: relative;
+    margin: 5px;
+    border-bottom: solid rgba(0, 0, 0, 0.493) 1px;
+}
+
+
+    /* Small Scren */
+
+@media(min-width: 992px) {
+    /*================================================================
+========================= image show in shopnow page ============================
+=================================================================*/
+    .wrap-column {
+        width: 33%;
+        height: max-content;
+        box-sizing: border-box;
+        position: relative;
+        margin: 0px;
+        border-bottom: solid rgba(0, 0, 0, 0.493) 1px;
+    }
+    /*================================================================
+========================= slider ============================
+=================================================================*/
+    #slider figure img {
+        width: 20%;
+        float: left;
+        height: 325px;
+        border-radius: 10px;
+    }
+}
+</style>
 
 <body>
     <div class="wrapper">
@@ -66,86 +170,21 @@
 
         </header>
 
-                <section class="section">
-                    <h1>Gallery</h1>
-                    <div class="grid">
-                      <div class="item item--large">
-                      <a href="/order">  <div class="item__details">
-                          LS01
-                        </div>
-                      </div></a>
-                      <div class="item item--large">
-                        <a href="/order"><div class="item__details">
-                          SS01
-                        </div></a>
-                      </div>
-                      <div class="item item--large">
-                        <a href="/order"><div class="item__details">
-                          MMS01
-                        </div></a>
-                      </div>
-                      <div class="item item--medium">
-                        <a href="/order"><div class="item__details">
-                          SIA01
-                        </div></a>
-                      </div>
-                      <div class="item item--medium">
-                        <a href="/order"><div class="item__details">
-                          BS01
-                        </div></a>
-                      </div>
-                      <div class="item item--medium">
-                        <a href="/order"><div class="item__details">
-                          SIA02
-                        </div></a>
-                      </div>
-                      <div class="item item--full">
-                        <a href="/order"><div class="item__details">
-                          LS02
-                        </div></a>
-                      </div>
-                      <div class="item item--medium">
-                        <a href="/order"><div class="item__details">
-                          BS02
-                        </div></a>
-                      </div>
-                      <div class="item item--medium">
-                        <a href="/order"><div class="item__details">
-                          LS03
-                        </div></a>
-                      </div>
-                      <div class="item item--medium">
-                        <a href="/order"><div class="item__details">
-                          SIVS90
-                        </div></a>
-                      </div>
-                      <div class="item item--large">
-                        <a href="/order"><div class="item__details">
-                          MMS98
-                        </div></a>
-                      </div>
-                      <div class="item item--large">
-                        <a href="/order"><div class="item__details">
-                          SS09
-                        </div></a>
-                      </div>
-                      <div class="item item--large">
-                        <a href="/order"><div class="item__details">
-                          SS80
-                        </div></a>
-                      </div>
-                      <div class="item item--large">
-                        <a href="/order"><div class="item__details">
-                          MMB09
-                        </div></a>
-                      </div>
-                      <div class="item item--large">
-                        <a href="/order"><div class="item__details">
-                          SS90
-                        </div></a>
-                      </div>
+            <div class="row-3 box">
+                <% dress.forEach(function (dress){%>
+                  <div class="wrap-column">
+                    <p class="boxi">
+                      <img src = "<%= dress.link %>"></p>
+                      <span> Dress type:    <%= dress.dressname%> </span>
+                      <span> <b>RS     <%= dress.price%> </b> </span>
+                      <span>  Size:  <%= dress.size%></span>
+                      <span> <button type="button" name="button"
+                         style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-size: 16px; border: none; padding: 10px;">
+                         <a href="/order/<%=dress._id%>">Order now</a></button> </span>
                     </div>
-                </section>
+                <%}) %>
+            </div>
+
 
         <footer class="page-footer">
 

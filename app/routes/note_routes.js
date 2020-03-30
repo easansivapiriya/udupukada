@@ -7,7 +7,18 @@ module.exports = function(app, db) {
 app.get('/',(req,res)=> res.render('welcome'))
 
 //showrooms
-app.get('/limmys',(req,res)=> res.render('limmys'))
+app.get('/limmys', (req, res)=>{
+  const data = db.collection('dress').find({shopname:"limmys" }).toArray((err, limmys) => {
+    if (err){
+      res.send({'error':'An error has occurred'});
+    } else {
+          limmys.reverse();
+      // res.send(units);
+    res.render('limmys.ejs',{"dress": limmys })
+    }
+  });
+});
+
 
 app.get('/megamart',(req,res)=> res.render('megamart'))
 
@@ -18,9 +29,17 @@ app.get('/boys',(req,res)=> res.render('boys'))
 app.get('/sivakaneshan',(req,res)=> res.render('sivakaneshan'))
 
 //shopnow
-app.get('/shopnow',(req,res)=>{
-  res.render('shop-now.ejs' ,{ "user":req.user})
-})
+app.get('/shopnow', (req, res)=>{
+  const data = db.collection('dress').find({}).toArray((err, shopnow) => {
+    if (err){
+      res.send({'error':'An error has occurred'});
+    } else {
+          shopnow.reverse();
+      // res.send(units);
+    res.render('shop-now.ejs',{"user":req.user, "dress": shopnow })
+    }
+  });
+});
 
 //contact us
 app.post('/', (req, res) => {
@@ -129,10 +148,38 @@ app.get('/users/logout', (req, res) => {
   res.redirect('/');
 });
 
-//order***************
-app.get('/order',(req,res)=>{
-   res.render('order.ejs')
+//dress***************
+app.get('/dress',(req,res)=>{
+   res.render('dress.ejs')
  })
+
+
+ app.post('/dress', (req, res) => {
+    const dress = { dressname: req.body.dressname, price: req.body.price, type: req.body.type, size: req.body.size,shopname: req.body.shopname,link: req.body.link};
+    console.log(dress);
+    db.collection('dress').insert(dress, (err, result) => {
+      if (err) {
+        res.send({ 'error': 'An error has occurred' });
+      } else {
+        // res.send(result.ops[0]);
+
+      }
+    });
+  });
+
+
+
+//order***************
+app.get('/order/:id',(req,res)=>{
+  let dressid ={"_id":ObjectID(req.params.id)}
+    db.collection('dress').findOne(dressid, (err, dress)=>{
+      if(err){
+        res.send({'error':'Error ondu irukku'});
+      }else{
+        res.render('order.ejs',{"dress":dressid})
+      }
+    });
+ });
 
 
  app.post('/order-item', (req, res) => {
@@ -198,5 +245,17 @@ app.get('/admin-mail', (req, res)=>{
   });
 });
 
+//admin contact us
+app.get('/admin-dress', (req, res)=>{
+  const data = db.collection('dress').find({}).toArray((err, adress) => {
+    if (err){
+      res.send({'error':'An error has occurred'});
+    } else {
+        adress.reverse();
+      // res.send(units);
+      res.render('a-dress.ejs', { "dress": adress })
+    }
+  });
+});
 
 };

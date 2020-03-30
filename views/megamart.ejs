@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="main.js"></script>
 
@@ -14,122 +14,53 @@
 </head>
 
 <body>
-    <div class="wrapper">
+  <div class="wrapper">
 
-        <header class="page-header">
+      <header class="page-header">
 
-            <div class="header">
+          <div class="header">
 
-                <div class="logo">
-                    <img src="logo.png" alt="">
-                </div>
-                <div class="center">
-                    <div class="search">
-                        <div class="search__container">
-                            <input class="search__input" type="text" placeholder="Search">
-                        </div>
-                    </div>
-                </div>
+              <div class="logo">
+                  <img src="logo.png" alt="">
+              </div>
+              <div class="center">
+                  <div class="search">
+                      <div class="search__container">
+                          <input class="search__input" type="text" placeholder="Search">
+                      </div>
+                  </div>
+              </div>
 
-            </div>
+          </div>
 
-            <nav class="nav_bar">
-                <ul>
-                    <li class="active"><button><i class="fa fa-home"></i>Home</button></li>
-                    <li>
-                        <button>Show Rooms</button>
-                        <div class="submenu-1">
-                            <ul>
-                                <li><button>Limmys</button></li>
-                                <li><button>Mega Mart</button></li>
-                                <li><button>Shifra</button></li>
-                                <li><button>Sivakaneshan</button></li>
-                                <li><button>list 5</button></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <button>Locations</button>
-                        <div class="submenu-1">
-                            <ul>
-                                <li class="hover-me">
-                                    <button>Jaffna</button><i class="fa fa-angle-right"></i>
-                                    <div class="submenu-2">
-                                        <ul>
-                                            <li><button>Nelliyadi</button></li>
-                                            <li><button>Tondamanaru</button></li>
-                                            <li><button>Jaffna town</button></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><button>Kilinochchi</button></li>
-                                <li><button>Mulativu</button></li>
-                                <li><button>Mannar</button></li>
-                                <li><button>Trincomale</button></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><button>Catogary</button></li>
-                    <li><button>Shop Now</button></li>
-                </ul>
-                <ul>
-                    <li><button onclick="document.getElementById('login').style.display='block'"
-                            style="width:auto;">Login</button></li>
+          <nav class="nav_bar">
+              <ul>
+                  <li class="active"><button class="navfont"><i class="fa fa-home"></i><a href="/">Home</a></button></li>
+                  <li>
+                    <button class="navfont">Show Rooms</button>
+                      <div class="submenu-1">
+                        <ul>
+                          <li><button><a href="/Limmys">Limmys</a></button></li>
+                          <li><button><a href="/megamart">Mega Mart</a></button></li>
+                          <li><button><a href="/Shifra">Shifra</a></button></li>
+                          <li><button><a href="/Sivakaneshan">Sivakaneshan</a></button></li>
+                          <li><button><a href="/boys">boys</a></button></li>
+                      </ul>
+                      </div>
+                  </li>
 
-                    <!--pop up form Signup-->
+                  <li><button class="navfont"><a href="#about">About us</a></button></li>
+                  <li><button class="navfont"><a href="#contact">Contact us</a></button></li>
+                  <li><button class="navfont"><a href="/shopnow">Shop Now</button></li>
+              </ul>
+              <ul>
 
-                    <div id="login" class="modal">
-                        <span onclick="document.getElementById('login').style.display='none'" class="close"
-                            title="Close Modal">×</span>
-                        <form class="modal-content animate form" action="/index.html">
-                            <h1>Login</h1>
-                            <div class="input-icons">
-                                <i class="fa fa-user icon"></i>
-                                <input type="email" name="" id="" class="input-field"
-                                    placeholder="Enter your Email or Username">
-                                <i class="fa fa-unlock-alt icon"></i>
-                                <input type="password" name="" id="" class="input-field"
-                                    placeholder="Enter a valid password">
-                                <button type="submit">Login</button>
-                                <a style="display: block;">Forget password?</a>
-                            </div>
-                            <div>
-                                <span>Not a member?<button>Signup Now</button></span>
-                            </div>
-                        </form>
-                    </div>
+                      <li><button class="navfont"><a href="users/login">Login</button> </a></li>
+                          <li><button class="navfont"><a href="users/register">Signup</button> </a></li>
 
-                    <li><button onclick="document.getElementById('signup').style.display='block'"
-                            style="width:auto;">Signup</button></li>
 
-                    <!--pop up form Signup-->
-                    <div id="signup" class="modal">
-                        <span onclick="document.getElementById('signup').style.display='none'" class="close"
-                            title="Close Modal">×</span>
-                        <form class="modal-content animate form" action="/index.html">
-                            <h1>Signup</h1>
-                            <div class="input-icons">
-                                <i class="fa fa-user icon"></i>
-                                <input type="text" name="" id="" class="input-field" placeholder="Enter your Username">
-                                <i class="fa fa-email icon"></i>
-                                <input type="email" name="" id="" class="input-field" placeholder="Enter your Email">
-                                <i class="fa fa-unlock-alt icon"></i>
-                                <input type="password" name="" id="" class="input-field"
-                                    placeholder="Enter your password">
-                                <i class="fa fa-unlock-alt icon"></i>
-                                <input type="password" name="" id="" class="input-field"
-                                    placeholder="Conform your password">
-                                <button type="submit">Signup</button>
-                            </div>
-                            <div>
-                                <span>Alredy have a account<button>Login Now</button></span>
-                            </div>
-                        </form>
-                    </div>
-
-                </ul>
-            </nav>
-
+              </ul>
+          </nav>
             <div id="slider">
                 <figure>
                     <img src="https://www.pinkblueindia.com/blog/wp-content/uploads/2018/10/diwali-baby-girl-dress.jpg"></img>
