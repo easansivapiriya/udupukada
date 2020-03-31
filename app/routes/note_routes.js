@@ -161,7 +161,7 @@ app.get('/dress',(req,res)=>{
       if (err) {
         res.send({ 'error': 'An error has occurred' });
       } else {
-        // res.send(result.ops[0]);
+        res.redirect('/dress')// res.send(result.ops[0]);
 
       }
     });
@@ -176,10 +176,21 @@ app.get('/order/:id',(req,res)=>{
       if(err){
         res.send({'error':'Error ondu irukku'});
       }else{
-        res.render('order.ejs',{"dress":dressid})
+        res.render('order.ejs',{"dress":dress})
       }
     });
  });
+
+ app.get('/card/:id',(req,res)=>{
+   let dressid ={"_id":ObjectID(req.params.id)}
+     db.collection('dress').findOne(dressid, (err, dress)=>{
+       if(err){
+         res.send({'error':'Error ondu irukku'});
+       }else{
+         res.render('card.ejs',{"dress":dress})
+       }
+     });
+  });
 
 
  app.post('/order-item', (req, res) => {

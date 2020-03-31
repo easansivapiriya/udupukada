@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>udupukada admin</title>
+    <style>
+    img {
+      height: 200px;
+      width: 220px;
+      border-radius: 6px;
+    }
+
+  th{
+    background-color: #0a4a8a;
+    color: white;
+  ;
+  }table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-radius: 0px;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    width: 100px;}
+  table#t01 {
+    background-color: #F1F1C1
+  ;}
+
+  .container {
+    padding: 2px 16px;
+  }
+
+      </style>
+  </head>
+  <body>
+           <section class="header">
+                   <h1>User Details</h1>  <!--<div> <button class="bu"><a href="/Order">Order</a></button><br> </div>-->
+   <br>
+           </section>
+           <div class="container">
+           <table align="center" width="100%">
+                  <th>Dress Name </th>
+                  <th>Dress ID </th>
+                  <th>Price </th>
+                  <th>size </th>
+                    <th>Shop name</th>
+                  <th>Dress image </th>
+
+                    <div>
+
+      <tr>
+
+        <td> <%= dress.dressname%> </td>
+        <td> <%= dress._id%> </td>
+        <td> <%= dress.price%> </td>
+        <td> <%= dress.size%> </td>
+          <td> <%= dress.shopname%> </td>
+        <td>   <img src = "<%= dress.link %>"> </td>
+      </tr>
+
+    </div>
+    </table>
+      </div>
+  </body>
+</html>

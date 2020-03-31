@@ -9,36 +9,15 @@
   <link rel="stylesheet" href="/login.css">
   <script src="main.js"></script>
 </head>
-  <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <%= error.msg %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <% }); %> <% } %> <% if(success_msg != ''){ %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <%= success_msg %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <% } %> <% if(error_msg != ''){ %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <%= error_msg %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <% } %> <% if(error != ''){ %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <%= error %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <% } %>
+<style media="screen">
 
+img {
+  height: 200px;
+  width : 200px;
+  float: left;
+}
+
+</style>
   <body>
     <div class="wrapper">
 
@@ -73,32 +52,32 @@
 
 
                 </ul>
-            </nav>
+            </nav> <br>
             <center>
-            <div class="box">
-    <h1>order</h1>
+              <h1>Your Order</h1>
+              <table>
+            <div >
+              <td>
+                <th>
+                <img src = "<%= dress.link %>"> <br>
+              <span> <b>RS<%= dress.price%> </b> </span> <br>
+              <span>  <%= dress._id%></span>
+</th>
+
+<th>
+
     <form class="" action="/order-item" method="post">
       <input type="text" name="name" placeholder="Enter your sweet name..."> <br> <br>
       <input type="text" name="email" placeholder="Enter your email..."> <br> <br>
       <input type="text" name="address" placeholder="Enter your address"> <br> <br>
       <input type="text" name="city" placeholder="Enter your city"> <br> <br>
       <input type="text" name="phone" placeholder="Enter your phone number"> <br> <br>
-      <input  class="bu" type="submit" name="submit" value="submit">
-    </form>
-    <table>
-      <div>
-    <tr>
+      <input  class="bu" type="submit" name="submit" value="order now">
+    </form> <th>
+ </td>
 
-          <th>
-              <span> <b>RS<%= dress.price%> </b> </span>
-              <span>  <%= dress._id%></span>
-            </th>
-            </tr>
 
-      </div>
-      </table>
-
-  </div> </center>
+</table> </div> </center>
 </header> <div>
   </body>
 </html>
