@@ -5,11 +5,17 @@
     <title></title>
       <link rel="stylesheet" href="/style.css">
     <style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 30%;
-}
+    table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
 
 button {
   background-color:#064463;
@@ -24,29 +30,49 @@ button {
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
-.container {
-  padding: 2px 16px;
+img {
+  width: 200px;
+  height: 200px;
+}
+h1 {
+  padding-left: 50px;
+}
 }
 </style>
   </head>
   <body>
-    <center>
-    <div class="card container">
+    <table>
+    <center> <tr> <th>
+      <img src="https://img.icons8.com/clouds/2x/user.png" alt="">
    <h1><button><a href="/admin-user">User</button></h1>
-  </div>
-    <div class="card container">
+  </div> </th>  <th>
+      <img src="https://www.pngkey.com/png/detail/299-2993010_any-vendor-purchase-order-purchase-order-png-icon.png" alt="">
     <h1><button><a href="/admin-order">Order</button></h1>
-    </div>
+    </div> </th> <th>
+      <img src="https://images-na.ssl-images-amazon.com/images/I/41NxGNlKzwL.png" alt="">
     <div class="card container">
     <h1><button><a href="/admin-mail">Mail</button></h1>
-    </div>
-    <div class="card container">
-    <h1><button><a href="/dress">Dress</button></h1>
-    </div>
+    </div> </th></tr><tr> <th>
+        <img src="data:image/png;base64,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" alt="">
     <div class="card container">
     <h1><button><a href="/admin-dress">Dress Details</button></h1>
+    </div> </th> <th>
+        <img src="https://www.pinclipart.com/picdir/big/11-110975_available-app-store-vector-online-store-icon-png.png" alt="">
+    <div class="card container">
+    <h1><button><a href="/admin-shop">Shop details</button></h1>
+    </div>  </th></tr> <tr>
+    <td>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRi3WvNtkpY_UYuTYuRgTlQXLORyWlqWkcKF2_Q9gC9TYk3XU6F&usqp=CAU" alt="">
+    <div class="card container">
+    <h1><button><a href="/shop">Add shop</button></h1>
     </div>
+  </td> <td>
+      <img src="https://image.flaticon.com/icons/png/512/2132/2132385.png" alt="">
+    <div class="card container">
+    <h1><button><a href="/dress">Add Dress</button></h1>
+    </div>
+  </td> </tr>
   </center>
+</table>
 </body>
 </html>

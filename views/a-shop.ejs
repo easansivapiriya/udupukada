@@ -35,7 +35,7 @@
   </head>
   <body>
            <section class="header">
-                   <h1>User Details</h1>  <!--<div> <button class="bu"><a href="/Order">Order</a></button><br> </div>-->
+                   <h1>Shop Details</h1>  <!--<div> <button class="bu"><a href="/Order">Order</a></button><br> </div>-->
    <br>
            </section>
            <div class="container">
@@ -50,15 +50,15 @@
                     <div>
 
       <tr>
-
-        <td> <%= dress.dressname%> </td>
-        <td> <%= dress._id%> </td>
-        <td> <%= dress.price%> </td>
-        <td> <%= dress.size%> </td>
-          <td> <%= dress.shopname%> </td>
-        <td>   <img src = "<%= dress.link %>"> </td>
+    <% shop.forEach(function (shop){%>
+        <td> <%= shop.shopname%> </td>
+        <td> <%= shop.number%> </td>
+        <td> <%= shop.address%> </td>
+        <td> <%= shop.opentime%> </td>
+          <td> <%= shop.closetime%> </td>
+        <td>   <img src = "<%= shop.link %>"> </td>
       </tr>
-
+    <%}) %>
     </div>
     </table>
       </div>

@@ -4,29 +4,53 @@ var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function(app, db) {
 //home
-app.get('/',(req,res)=> res.render('welcome'))
-
-//showrooms
-app.get('/limmys', (req, res)=>{
-  const data = db.collection('dress').find({shopname:"limmys" }).toArray((err, limmys) => {
+app.get('/', (req, res)=>{
+  const data = db.collection('shop').find({}).toArray((err, ashop) => {
     if (err){
       res.send({'error':'An error has occurred'});
     } else {
-          limmys.reverse();
-      // res.send(units);
-    res.render('limmys.ejs',{"dress": limmys })
+        ashop.reverse();
+        res.render('welcome.ejs', { "shop": ashop ,"user":req.user })
     }
   });
 });
 
+//contact us
+app.post('/', (req, res) => {
+   const mail = { name: req.body.name, email: req.body.email, subject: req.body.subject, message: req.body.message, phone: req.body.phone };
+    console.log(mail);
+   db.collection('mail').insert(mail, (err, result) => {
+     if (err) {
+       res.send({ 'error': 'An error has occurred' });
+     } else {
 
-app.get('/megamart',(req,res)=> res.render('megamart'))
+     }
+  });
+});
 
-app.get('/sifra',(req,res)=> res.render('sifra'))
 
-app.get('/boys',(req,res)=> res.render('boys'))
+//showrooms
+app.get('/showroom/:shopname',(req,res)=>{
+  let shopname= {"shopname":req.params.shopname}
+    db.collection('shop').findOne(shopname, (err, shop)=>{
+      if(err){
+        res.send({'error':'An error has occurred'});
+      }else{
 
-app.get('/sivakaneshan',(req,res)=> res.render('sivakaneshan'))
+          const data = db.collection('dress').find(shopname).toArray((err, dress) => {
+            if (err){
+              res.send({'error':'An error has occurred'});
+            } else {
+                  dress.reverse();
+              // res.send(units);
+            res.render('limmys.ejs',{"shop": shop , "dress": dress });
+            }
+          });
+
+      }
+    });
+ });
+
 
 //shopnow
 app.get('/shopnow', (req, res)=>{
@@ -41,19 +65,24 @@ app.get('/shopnow', (req, res)=>{
   });
 });
 
-//contact us
-app.post('/', (req, res) => {
-   const mail = { name: req.body.name, email: req.body.email, subject: req.body.subject, message: req.body.message, phone: req.body.phone };
-   console.log(mail);
-   db.collection('mail').insert(mail, (err, result) => {
-     if (err) {
-       res.send({ 'error': 'An error has occurred' });
-     } else {
-       // res.send(result.ops[0]);
+// add shop
+ app.get('/shop',(req,res)=>{
+    res.render('shop.ejs')
+  })
 
-     }
-   });
- });
+ app.post('/shop', (req, res) => {
+    const shop = { shopname: req.body.shopname, address: req.body.address, number: req.body.number, opentime: req.body.opentime,closetime: req.body.closetime,link: req.body.link};
+    console.log(shop);
+    db.collection('shop').insert(shop, (err, result) => {
+      if (err) {
+        res.send({ 'error': 'An error has occurred' });
+      } else {
+        res.redirect('/shop')// res.send(result.ops[0]);
+
+      }
+    });
+  });
+
 
 //user model
 const User = require('../models/User')
@@ -170,27 +199,9 @@ app.get('/dress',(req,res)=>{
 
 
 //order***************
-app.get('/order/:id',(req,res)=>{
-  let dressid ={"_id":ObjectID(req.params.id)}
-    db.collection('dress').findOne(dressid, (err, dress)=>{
-      if(err){
-        res.send({'error':'Error ondu irukku'});
-      }else{
-        res.render('order.ejs',{"dress":dress})
-      }
-    });
- });
-
- app.get('/card/:id',(req,res)=>{
-   let dressid ={"_id":ObjectID(req.params.id)}
-     db.collection('dress').findOne(dressid, (err, dress)=>{
-       if(err){
-         res.send({'error':'Error ondu irukku'});
-       }else{
-         res.render('card.ejs',{"dress":dress})
-       }
-     });
-  });
+app.get('/order',(req,res)=>{
+   res.render('order.ejs')
+ })
 
 
  app.post('/order-item', (req, res) => {
@@ -256,7 +267,7 @@ app.get('/admin-mail', (req, res)=>{
   });
 });
 
-//admin contact us
+//dress Details
 app.get('/admin-dress', (req, res)=>{
   const data = db.collection('dress').find({}).toArray((err, adress) => {
     if (err){
@@ -268,5 +279,21 @@ app.get('/admin-dress', (req, res)=>{
     }
   });
 });
+
+
+  //shop Details
+  app.get('/admin-shop', (req, res)=>{
+    const data = db.collection('shop').find({}).toArray((err, ashop) => {
+      if (err){
+        res.send({'error':'An error has occurred'});
+      } else {
+          ashop.reverse();
+        // res.send(units);
+        res.render('a-shop.ejs', { "shop": ashop })
+      }
+    });
+  });
+
+
 
 };

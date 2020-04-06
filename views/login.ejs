@@ -10,6 +10,7 @@
     <script src="main.js"></script>
   </head>
 
+
   <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       <%= error.msg %>
@@ -82,26 +83,17 @@
                 <ul>
                     <li><button class="navfont"><i class="fa fa-home"></i><a href="/">Home</a></button></li>
                     <li>
-                      <button class="navfont">Show Rooms</button>
-                        <div class="submenu-1">
-                          <ul>
-                            <li><button><a href="/Limmys">Limmys</a></button></li>
-                            <li><button><a href="/megamart">Mega Mart</a></button></li>
-                            <li><button><a href="/Shifra">Shifra</a></button></li>
-                            <li><button><a href="/Sivakaneshan">Sivakaneshan</a></button></li>
-                            <li><button><a href="/boys">boys</a></button></li>
-                        </ul>
-                        </div>
+                      <button class="navfont"> <a href="/#showrooms">Show Rooms</a> </button>
                     </li>
 
-                    <li><button class="navfont"><a href="#about">About us</a></button></li>
-                    <li><button class="navfont"><a href="#contact">Contact us</a></button></li>
+                    <li><button class="navfont"><a href="/#about">About us</a></button></li>
+                    <li><button class="navfont"><a href="/#contact">Contact us</a></button></li>
                     <li><button class="navfont"><a href="/shopnow">Shop Now</button></li>
                 </ul>
                 <ul>
 
-                        <li class="active"><button class="navfont"><a href="/login">Login</button> </a></li>
-                            <li><button class="navfont"><a href="/register">Signup</button> </a></li>
+                        <li class="active"><button class="navfont"><a href="/users/login">Login</button> </a></li>
+                            <li><button class="navfont"><a href="/users/register">Signup</button> </a></li>
 
 
                 </ul>

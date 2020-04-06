@@ -8,16 +8,22 @@
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/login.css">
   <script src="main.js"></script>
-</head>
-<style media="screen">
-
-img {
-  height: 200px;
-  width : 200px;
-  float: left;
+</head>  <style media="screen">
+  table {
+  border-collapse: collapse;
+  width: 50%;
 }
 
-</style>
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+    img {
+      height: 200px;
+      width: 200px;
+    }
+  </style>
   <body>
     <div class="wrapper">
 
@@ -46,34 +52,46 @@ img {
                     <li><button class="navfont"><a href="/shopnow">Shop Now</button></li>
                 </ul>
                 <ul>
+                  <% if (user) { %>
+                    <li>
+                  <a href="/mycart" class="fa fa-shopping-bag">My Cart (
 
+                      <%= user.mycart.length %>
+
+                  )</a>
+              </li>
+                      <li style="color:white;"> <%=user.name%> </li>
+                      <li><button class="navfont"><a href="/users/logout">Logout</button> </a></li>
+                <%    }  else { %>
                         <li><button class="navfont"><a href="users/login">Login</button> </a></li>
                             <li><button class="navfont"><a href="users/register">Signup</button> </a></li>
+                    <%      }%>
 
 
                 </ul>
-            </nav> <br>
-            <center>
-              <h1>Your Order</h1>
-              <table>
-            <div >
-              <td>
-            
+            </nav>
+    <h1>My cart</h1>
+    <table>
+      <th>Dress</th>
+      <th>Price</th>
+      <th></th>
+      <hr>
+    <% if (user.mycart){%>
+      <% user.mycart.forEach((cart)=>{%>
+        <tr>
+            <td>  <img src = "<%= cart.link %>">
+        <%= cart.dressname %></td>
+        <td><%= cart.price %></td>
 
-<th>
-
-    <form class="" action="/order-item" method="post">
-      <input type="text" name="name" placeholder="Enter your sweet name..."> <br> <br>
-      <input type="text" name="email" placeholder="Enter your email..."> <br> <br>
-      <input type="text" name="address" placeholder="Enter your address"> <br> <br>
-      <input type="text" name="city" placeholder="Enter your city"> <br> <br>
-      <input type="text" name="phone" placeholder="Enter your phone number"> <br> <br>
-      <input  class="bu" type="submit" name="submit" value="order now">
-    </form> <th>
- </td>
-
-
-</table> </div> </center>
-</header> <div>
+        <td>
+      </tr>
+      <%})%>
+    <%}else{%>
+      <p>Done</p>
+      <%}%>
+    </table>
+    <button type="button" name="button"
+        style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-size: 16px; border: none; padding: 10px;">
+      <a href="/order">       Order now </a></button>
   </body>
 </html>
