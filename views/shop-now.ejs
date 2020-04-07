@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <style media="screen">
+
+.imgc {
+  height: 100px;
+  width: 100px;
+  border-radius: 6px;
+}
 
 .box {
   background-color: whitesmoke;
@@ -136,30 +143,73 @@ img {
 
             </div>
 
+            <div class="container">
+    <div class="inner-header">
+
             <nav class="nav_bar">
                 <ul>
                     <li><button class="navfont"><i class="fa fa-home"></i><a href="/">Home</a></button></li>
                     <li>
-                      <button class="navfont"> <a href="/#showrooms">Show Rooms</a> </button>
+                      <button class="navfont"> <a href="#showrooms">Show Rooms</a> </button>
                     </li>
 
-
-                    <li><button class="navfont"><a href="/#about">About us</a></button></li>
-                    <li><button class="navfont"><a href="/#contact">Contact us</a></button></li>
+                    <li><button class="navfont"><a href="#about">About us</a></button></li>
+                    <li><button class="navfont"><a href="#contact">Contact us</a></button></li>
                     <li class="active"><button class="navfont"><a href="/shopnow">Shop Now</button></li>
                 </ul>
-
                 <ul>
-                  <% if (user) { %>
-                    <li>
-                  <a href="/mycart" class="fa fa-shopping-bag">My Cart (
+                    <% if (user) { %>
 
-                      <%= user.mycart.length %>
 
-                  )</a>
-              </li>
-                      <li style="color:white;"> <%=user.name%> </li>
-                      <li><button class="navfont"><a href="/users/logout">Logout</button> </a></li>
+                    <ul class="nav-right">
+
+                        <li class="cart-icon">
+                            <a style="color:white;" href="#">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span style="background-color:#97adb8;">
+
+                                    <%= user.mycart.length %>
+
+                                </span>
+                            </a>
+                            <div class="cart-hover">
+                                <div class="select-items">
+                                    <table>
+                                        <tbody>
+                                          <% if (user.mycart){%>
+                                            <% user.mycart.forEach((cart)=>{%>
+                                            <tr>
+                                                <td class="si-pic"><img class="imgc"src = "<%= cart.link %>"></td>
+                                                <td class="si-text">
+                                                    <div class="product-selected">
+                                                        <p style="color:#0c4d7a;"><%= cart.price %></p>
+                                                        <h6> <%= cart.dressname %> </h6>
+                                                    </div>
+                                                </td>
+                                                <td class="si-close">
+                                                    <i class="ti-close"></i>
+                                                </td>
+                                            </tr>
+                                            <%})%>
+                                          <%}else{%>
+                                            <p>Done</p>
+                                            <%}%>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="select-button">
+
+                                    <a href="/checkout" class="primary-btn checkout-btn" style="background-color:#0c4d7a;">CHECK OUT</a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+<ul>
+
+                        <li style="color:white;"> <a href="userprofile"> <%=user.name%> </li>
+                    
                 <%    }  else { %>
                         <li><button class="navfont"><a href="users/login">Login</button> </a></li>
                             <li><button class="navfont"><a href="users/register">Signup</button> </a></li>
@@ -168,6 +218,9 @@ img {
 
                 </ul>
             </nav>
+          </div>
+
+    </div>
 
         </header>
 
@@ -182,12 +235,12 @@ img {
 
 
                       <% if (user) { %>
-                     <button type="button" name="button" onclick="addcart('<%=dress._id%>')"
+                     <button class="primary-btn checkout-btn" type="button" name="button" onclick="addcart('<%=dress._id%>')"
                          style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-size: 16px; border: none; padding: 10px;">
                               Add to cart</button>
 
                           <%    }  else { %>
-                                <a href="/user/login">Login to add this in your cart</a>
+                                <a href="/user/login" style="color:black;">Login to add this in your cart</a>
                               <%      }%>
 
                           </div>

@@ -294,6 +294,27 @@ app.get('/admin-dress', (req, res)=>{
     });
   });
 
+  app.get('/checkout',(req, res)=>{
+      res.render('checkout',{user:req.user})
+    })
+
+    app.post('/checkout', (req,res)=>{
+    let cart = req.user.mycart;
+    db.collection('checkoutOrder').insertOne({user:req.user.name, email: req.user.email, address: req.body.address, city: req.body.city, phone:req.body.phone, 'order':cart},(err, order)=>{
+      if (err){
+        console.log(err);
+      } else {
+        db.collection('users').updateOne({'_id': ObjectID(req.user.id)},{$unset:{'mycart':''}})
+        res.redirect('/mycart')
+      }
+    })
+    console.log(cart);
+  })
+
+  //user profile
+  app.get('/userprofile', (req, res) => {
+      res.render('userprofile.ejs', { "user": req.user })
+  })
 
 
 };

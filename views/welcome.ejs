@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="main.js"></script>
 </head>
@@ -14,6 +15,11 @@
   img {
     height: 300px;
     width: 300px;
+    border-radius: 6px;
+  }
+  .imgc {
+    height: 100px;
+    width: 100px;
     border-radius: 6px;
   }
 </style>
@@ -36,6 +42,8 @@
                 </div>
 
             </div>
+            <div class="container">
+  <div class="inner-header">
 
             <nav class="nav_bar">
                 <ul>
@@ -49,16 +57,58 @@
                     <li><button class="navfont"><a href="/shopnow">Shop Now</button></li>
                 </ul>
                 <ul>
-                  <% if (user) { %>
-                    <li>
-                  <a href="/mycart" class="fa fa-shopping-bag">My Cart (
+                    <% if (user) { %>
 
-                      <%= user.mycart.length %>
 
-                  )</a>
-              </li>
-                      <li style="color:white;"> <%=user.name%> </li>
-                      <li><button class="navfont"><a href="/users/logout">Logout</button> </a></li>
+                    <ul class="nav-right">
+
+                        <li class="cart-icon">
+                            <a style="color:white;" href="#">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span style="background-color:#97adb8;">
+
+                                    <%= user.mycart.length %>
+
+                                </span>
+                            </a>
+                            <div class="cart-hover">
+                                <div class="select-items">
+                                    <table>
+                                        <tbody>
+                                          <% if (user.mycart){%>
+                                            <% user.mycart.forEach((cart)=>{%>
+                                            <tr>
+                                                <td class="si-pic"><img class="imgc"src = "<%= cart.link %>"></td>
+                                                <td class="si-text">
+                                                    <div class="product-selected">
+                                                        <p style="color:#0c4d7a;"><%= cart.price %></p>
+                                                        <h6> <%= cart.dressname %> </h6>
+                                                    </div>
+                                                </td>
+                                                <td class="si-close">
+                                                    <i class="ti-close"></i>
+                                                </td>
+                                            </tr>
+                                            <%})%>
+                                          <%}else{%>
+                                            <p>Done</p>
+                                            <%}%>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="select-button">
+
+                                    <a href="/checkout" class="primary-btn checkout-btn" style="background-color:#0c4d7a;">CHECK OUT</a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+<ul>
+                      <li style="color:white;"> <a href="userprofile"> <%=user.name%> </li>
+
                 <%    }  else { %>
                         <li><button class="navfont"><a href="users/login">Login</button> </a></li>
                             <li><button class="navfont"><a href="users/register">Signup</button> </a></li>
@@ -67,6 +117,10 @@
 
                 </ul>
             </nav>
+          </div>
+
+</div>
+
 
             <div id="slider">
                 <figure>
@@ -81,6 +135,7 @@
 
         </header> </div> <br>
 
+
         <!-- Deal Of The Week Section Begin-->
         <center>
         <div class="boxd">
@@ -91,26 +146,26 @@
                   <h2>Deal Of The Week</h2> <br>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br /> do ipsum dolor sit amet,
                       consectetur adipisicing elit </p> <br>
-                  <div class="product-price">
+                  <div style="color:#094269;" class="product-price">
                        Rs 3500
                       <span>/Salwar</span>
                   </div>
               </div> <br>
               <div class="countdown-timer" id="countdown">
               <div class="cd-item">
-                  <span id="day"></span>
+                  <p id="day"></p>
                   <p>Days</p>
               </div>
               <div class="cd-item">
-                  <span id="hour"></span>
+                  <p id="hour"></p>
                   <p>Hrs</p>
               </div>
               <div class="cd-item">
-                  <span id="minute"></span>
+                  <p id="minute"></p>
                   <p>Mins</p>
               </div>
               <div class="cd-item">
-                  <span id="second"></span>
+                  <p id="second"></p>
                   <p>Secs</p>
               </div>
           </div>
@@ -143,7 +198,7 @@ style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-si
 <center id="contact">
   <h1> <b>Contact us</b> </h1>
 <div class="box">
-<img class="imgf" src="https://tr3.cbsistatic.com/hub/i/r/2019/08/19/7781cd15-d512-4163-a8f3-c65420e920b9/resize/1200x/8405af53f69396b77bed9b10c212dc7b/istock-1147195672-1.jpg" alt="" width="300" height="300">
+<img class="imgf" src="https://st2.depositphotos.com/1915807/11163/v/950/depositphotos_111630038-stock-illustration-doodle-icons-set-business-the.jpg" alt="" width="300" height="300">
 <br>
 
 <form action="/" method="post">
@@ -155,6 +210,55 @@ style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-si
 </form>
 </div>
 </center>
+
+<table>
+
+        <div class="benefit-items">
+        <div class="row-3">
+          <th>
+            <div class="col-sm-4">
+                <div class="single-benefit">
+                    <div class="fa fa-address-card" style="font-size:44px; color:#0c4d7a;">
+
+                    </div>
+
+                    <div class="sb-text">
+                        <h6>Website</h6> <br>
+                        <p>Get a web page for your textile</p>
+                    </div>
+                </div>
+            </div>
+          </th>
+          <th>
+            <div class="col-lg-4">
+                <div class="single-benefit">
+                    <div class="fa fa-bus" style="font-size:44px; color:#0c4d7a;">
+
+                    </div>
+                    <div class="sb-text">
+                        <h6>Delivery On Time</h6> <br>
+                        <p>If good have prolems</p>
+                    </div>
+                </div>
+            </div>
+          </th>
+          <th>
+            <div class="col-lg-4">
+                <div class="single-benefit">
+                    <div class="fa fa-angellist" style="font-size:44px;color:#0c4d7a;">
+
+                    </div>
+                    <div class="sb-text">
+                        <h6>Secure Payment</h6> <br>
+                        <p>100% secure payment</p>
+                    </div>
+                </div>
+            </div>
+          </th>
+        </div>
+    </div>
+  </table> <br>
+
 
 <footer id="about" class="footer-distributed">
 
