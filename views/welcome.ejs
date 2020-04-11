@@ -89,13 +89,28 @@
                                                     <i class="ti-close"></i>
                                                 </td>
                                             </tr>
+
                                             <%})%>
+
+                                            <div  class="select-total">
+                                        <span style="color:#0c4d7a;">total:</span>
+                                        <%  var totel = 0; %>
+      <% user.mycart.forEach((dress)=>{ %>
+        <% totel += Number(dress.price); %>
+        <%})%>
+
+                                        <h5 style="color:#0c4d7a;">  <%=totel %></h5>
+
+                                        </div>
                                           <%}else{%>
                                             <p>Done</p>
                                             <%}%>
-                                        </tbody>
-                                    </table>
-                                </div>
+
+
+
+                          </tbody>
+                      </table>
+                  </div>
 
                                 <div class="select-button">
 
@@ -218,7 +233,7 @@ style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-si
           <th>
             <div class="col-sm-4">
                 <div class="single-benefit">
-                    <div class="fa fa-address-card" style="font-size:44px; color:#0c4d7a;">
+                    <div class="fa fa-address-card" style="font-size:50px; color:#0c4d7a;">
 
                     </div>
 
@@ -232,7 +247,7 @@ style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-si
           <th>
             <div class="col-lg-4">
                 <div class="single-benefit">
-                    <div class="fa fa-bus" style="font-size:44px; color:#0c4d7a;">
+                    <div class="fa fa-bus" style="font-size:50px; color:#0c4d7a;">
 
                     </div>
                     <div class="sb-text">
@@ -245,7 +260,7 @@ style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-si
           <th>
             <div class="col-lg-4">
                 <div class="single-benefit">
-                    <div class="fa fa-angellist" style="font-size:44px;color:#0c4d7a;">
+                    <div class="fa fa-angellist" style="font-size:50px;color:#0c4d7a;">
 
                     </div>
                     <div class="sb-text">
@@ -266,7 +281,8 @@ style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-si
   <div class="logo">
       <img src="logo.png" alt="">
   </div>
-<h3>About<span>Udupukada</span></h3>
+<h3>About
+  <span>Udupukada</span></h3>
 
 <p class="footer-links">
   <a href="/">Home</a>
@@ -311,6 +327,7 @@ style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-si
 </div>
 </div>
 </footer>
+
 
     <script>
 

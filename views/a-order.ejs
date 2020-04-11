@@ -40,16 +40,24 @@
                   <th>Address </th>
                   <th>City </th>
                   <th>Phone number  </th>
+                  <th>Dress details</th>
+
                     <div>
 
       <tr>
-    <% order.forEach(function (order){%>
-        <td> <%= order.name%> </td>
-        <td> <%= order._id%> </td>
-        <td> <%= order.email%> </td>
-        <td> <%= order.address%> </td>
-        <td> <%= order.city%> </td>
-        <td> <%= order.phone%> </td>
+    <% checkoutOrder.forEach(function (checkoutOrder){%>
+        <td> <%= checkoutOrder.user%> </td>
+        <td> <%= checkoutOrder._id%> </td>
+        <td> <%= checkoutOrder.email%> </td>
+        <td> <%= checkoutOrder.address%> </td>
+        <td> <%= checkoutOrder.city%> </td>
+        <td> <%= checkoutOrder.phone%> </td>
+      <td>    <% checkoutOrder.order.forEach(function (order){%>
+                <%= order._id%>
+               <%= order.price%>
+               <%= order.shopname%>
+
+                <%}) %> </td>
       </tr>
     <%}) %>
     </div>

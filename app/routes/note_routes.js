@@ -230,13 +230,13 @@ app.get('/admin',(req,res)=>{
 
 //admin order
   app.get('/admin-order', (req, res)=>{
-    const data = db.collection('order').find({}).toArray((err, aorder) => {
+    const data = db.collection('checkoutOrder').find({}).toArray((err, aorder) => {
       if (err){
         res.send({'error':'An error has occurred'});
       } else {
           aorder.reverse();
         // res.send(units);
-        res.render('a-order.ejs', { "order": aorder })
+        res.render('a-order.ejs', { "checkoutOrder": aorder })
       }
     });
   });
@@ -301,15 +301,27 @@ app.get('/admin-dress', (req, res)=>{
     app.post('/checkout', (req,res)=>{
     let cart = req.user.mycart;
     db.collection('checkoutOrder').insertOne({user:req.user.name, email: req.user.email, address: req.body.address, city: req.body.city, phone:req.body.phone, 'order':cart},(err, order)=>{
+      const {address, city, phone } = req.body;
+      let errors = [];
+
+      if (!address || !city || !phone) {
+          errors.push({ msg: 'pleace fill all fields' })
+      }
       if (err){
-        console.log(err);
+        res.render('checkoutOrder', {
+            errors,
+            address,
+            city,
+            phone
+        });
       } else {
         db.collection('users').updateOne({'_id': ObjectID(req.user.id)},{$unset:{'mycart':''}})
-        res.redirect('/mycart')
+        res.redirect('/thankyou')
       }
     })
     console.log(cart);
   })
+
 
   //user profile
   app.get('/userprofile', (req, res) => {

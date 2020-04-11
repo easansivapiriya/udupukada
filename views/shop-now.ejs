@@ -28,7 +28,7 @@
 }
 img {
   height: 400px;
-  width: 390px;
+  width: 300px;
   border-radius: 6px;
 }
 
@@ -40,14 +40,10 @@ img {
 .row-3 {
     display: flex;
     width: 100%;
-    margin: 10px auto;
+    margin: 0px auto;
     flex-wrap: wrap;
 }
 
-.wrap-column img {
-
-    position: relative;
-}
 
 .wrap-column .back {
     display: none;
@@ -191,6 +187,16 @@ img {
                                                 </td>
                                             </tr>
                                             <%})%>
+                                            <div  class="select-total">
+                                        <span style="color:#0c4d7a;">total:</span>
+                                        <%  var totel = 0; %>
+      <% user.mycart.forEach((dress)=>{ %>
+        <% totel += Number(dress.price); %>
+        <%})%>
+
+                                        <h5 style="color:#0c4d7a;">  <%=totel %></h5>
+
+                                        </div>
                                           <%}else{%>
                                             <p>Done</p>
                                             <%}%>
@@ -208,8 +214,8 @@ img {
                     </ul>
 <ul>
 
-                        <li style="color:white;"> <a href="userprofile"> <%=user.name%> </li>
-                    
+                        <li style="color:white;"> <a href="userprofile"> <%=user.name%> </a></li>
+
                 <%    }  else { %>
                         <li><button class="navfont"><a href="users/login">Login</button> </a></li>
                             <li><button class="navfont"><a href="users/register">Signup</button> </a></li>
@@ -227,21 +233,38 @@ img {
             <div class="row-3 box">
                 <% dress.forEach(function (dress){%>
                   <div class="wrap-column">
-                    <p class="boxi">
-                      <img src = "<%= dress.link %>"></p>
-                      <span> Dress type:    <%= dress.dressname%> </span>
-                      <span> <b>RS     <%= dress.price%> </b> </span>
-                      <span>  Size:  <%= dress.size%></span>
+                    <div class="product-item">
+                    <div class="pi-pic">
+                    <p>
+                      <img style="height:480px; width:55px;   padding: 11px; border-radius:5px;" src = "<%= dress.link %>"></p>
+                      <ul>
+
+                                      <li class="quick-view">
+                                                            <% if (user) { %>
+                                                           <button class="primary-btn checkout-btn" type="button" name="button" onclick="addcart('<%=dress._id%>')"
+                                                               style="color: black; background-color:white; border-radius: 4px;   margin: 4px 2px;  font-size: 16px; border: none; padding: 10px;">
+                                                                    Add to cart</button>
+
+                                                                <%    }  else { %>
+                                                                      <a href="/user/login" style="color:black;">Login to add this in your cart</a>
+                                                                    <%      }%>
+</li>
+                                      <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                  </ul>
+                                </div>
 
 
-                      <% if (user) { %>
-                     <button class="primary-btn checkout-btn" type="button" name="button" onclick="addcart('<%=dress._id%>')"
-                         style="background-color:#064463; border-radius: 4px;   margin: 4px 2px;  font-size: 16px; border: none; padding: 10px;">
-                              Add to cart</button>
+                      <div class="pi-text">
+                                  <div class="catagory-name"><%= dress.dressname%> <%= dress.size%></div>
 
-                          <%    }  else { %>
-                                <a href="/user/login" style="color:black;">Login to add this in your cart</a>
-                              <%      }%>
+                                  <div style="color:#064463;" class="product-price">
+                                  Rs  <%= dress.price%>
+
+                                  </div>
+                              </div>
+                            </div>
+
+
 
                           </div>
                       <%}) %>
